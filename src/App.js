@@ -23,9 +23,10 @@ function App() {
   // const [ userInput, setUserInput ] = useState('')
   
   const [ loading, setLoading ] = useState(false);
-  const [ value, setValue ] = useState('')
+  const [ selectedMedia, setSelectedMedia ] = useState();
   const nasaEndpoint=process.env.REACT_APP_NASA_ENDPOINT
   const nasaApiKey=process.env.REACT_APP_NASA_API_KEY
+  const [ startDate, setStartDate ] = useState(new Date())
 
 
   useEffect (() => {
@@ -34,6 +35,7 @@ function App() {
     .then((response) => response.json())
     .then((data) => {
       setData(data)
+      setSelectedMedia(data)
     })
     .catch((err) => {
       console.log(err)
@@ -41,8 +43,14 @@ function App() {
     .finally(() => {
       setLoading(false);
     });
-  }, []);
+  }, [nasaEndpoint, nasaApiKey]);
 
+  const handleDateChange = (date) => {
+    setStartDate(date)
+    console.log()
+    // setSelectedMedia()
+
+  }
 
 
   // console.log("data media type: ", data.media_type)
@@ -58,15 +66,14 @@ function App() {
               <LocalizationProvider dateAdapter={DateAdapter}>
                 <DatePicker 
                   label="Pick a date"
-                  value={value}
-                  onChange={(newValue) => {
-                    setValue(newValue);
-                  }}
+                  value={startDate}
+                  format="YY-MM-DD"
+                  onChange={handleDateChange}
                   renderInput={(params) => <TextField {...params} />}
                 />
               </LocalizationProvider>
 
-          { (data!==undefined) ? <Card data={data} /> : <div className='app-loading'><HourglassIcon/> Data is loading...</div> 
+          { (data!==undefined) ? <Card media={selectedMedia} data={data} /> : <div className='app-loading'><HourglassIcon/> Data is loading...</div> 
           }
       </div>
         <footer>

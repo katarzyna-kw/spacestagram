@@ -4,7 +4,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 
-export const Card = ({ data }) => {
+export const Card = ({ data, onMediaSelect }) => {
    const [ selectedMedia, setSelectedMedia ] = useState(data.media_type);
    // const [ image, setImage ] = useState()
    // const [ title, setTitle ] = useState('')
