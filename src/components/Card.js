@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
-import HourglassIcon from '@material-ui/icons/HourglassEmpty'
+import { LoadingAnimation } from './LoadingAnimation'
+import { LikeButton } from './LikeButton'
 import '../App.css';
 
 
@@ -41,12 +38,7 @@ export const Card = ({ media }) => {
                <p className="title">
                   {media.title}
                </p>
-               <FormControlLabel
-                  control={<Checkbox icon={<FavoriteBorderIcon />} 
-                  checkedIcon={<FavoriteIcon />}
-                  name="liked" />}
-               />
-               <p className="count">1</p>
+               <LikeButton />
             </div>
             <p className="date">
                {media.date}
@@ -57,7 +49,7 @@ export const Card = ({ media }) => {
          </div>
       </div>
    : <div className="container-content">
-   <div className='app-loading'><HourglassIcon/> Media is loading...</div>   
+      <LoadingAnimation />
    </div>
    }
 </>
