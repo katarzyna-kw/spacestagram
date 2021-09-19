@@ -3,7 +3,7 @@
   font-size: 16px;
   display: flex;
   flex-flow: column wrap;
-  background-image: linear-gradient(to right top, #00a3ab, #0078b2, #025077, #004996, #33135c);
+  background-image: linear-gradient(to right top, #00a3ab, #036da1, #036da1, #004996, #33135c);
 }
  
 .App-header {
@@ -14,12 +14,13 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
 }
 
 .App-header span {
   padding: 0 1rem 0 1rem;
   text-transform: uppercase;
+  font-size: 1.5rem;
 }
  
 .container-body {
@@ -29,20 +30,10 @@
   border-bottom-right-radius: 20px; 
   display: flex;
   flex-flow: row wrap;
-  margin-top: -2rem;
+  padding-top: 1rem;
   background-color: #fff;
   justify-content: center;
 }
-
-/* input {
-  border-radius: 20px;
-  height: 25px;
-  width: 70%;
-  border: 0;
-  background-color: rgb(231, 229, 229);
-  margin: 20px 0 10px 0;
-  text-indent: 10px;
-} */
 
 .container-content {
   display: flex;
@@ -75,7 +66,7 @@
   border-bottom-right-radius: 20px; 
 }
  
-.img-header {
+.img-info-header {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
@@ -132,7 +123,7 @@ footer a {
 }
 
 footer a:hover {
-  color: #FF9472;
+  color: rgb(247, 191, 247);
 }
 
 @media (min-width: 768px) {
