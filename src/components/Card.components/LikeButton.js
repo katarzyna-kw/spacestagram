@@ -6,9 +6,9 @@ import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 export const LikeButton = () => {
    return (
       <FormControlLabel
-      control={<Checkbox icon={<FavoriteBorderIcon />} 
-      checkedIcon={<FavoriteIcon />}
-      name="liked" />}
-   />
+         control={<Checkbox icon={<FavoriteBorderIcon />} 
+         checkedIcon={<FavoriteIcon />}
+         name="liked" />}
+      />
    )
 };

@@ -35,12 +35,12 @@ export const Dates = ({ nasaEndpoint, nasaApiKey, onSelect, loadingMedia }) => {
    return (
    <>
       <LocalizationProvider dateAdapter={DateAdapter}>
-      <DatePicker 
-        label="Pick a date"
-        value={startDate}
-        onChange={handleDateChange}
-        renderInput={(params) => <TextField {...params} />}
-      />
+        <DatePicker 
+          label="Pick a date"
+          value={startDate}
+          onChange={handleDateChange}
+          renderInput={(params) => <TextField {...params} />}
+        />
     </LocalizationProvider>
    </>
    )

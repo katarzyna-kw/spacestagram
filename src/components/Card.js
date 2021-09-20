@@ -14,25 +14,22 @@ export const Card = ({ media }) => {
       setMediaType(media.media_type);
    }, [media.media_type]);
 
-   console.log("media: ", media)
-
-
 
    return (
 <>
-   { (mediaType!==undefined) 
-      ? <div className="container-content">
-         <div className="container-img">
+   { (mediaType!==undefined)
+      ? <section className="container-content">
+         <div className="container-media">
             { (mediaType==="video") 
             ? <MediaTypeVideo media={media} />
             : <MediaTypeImage media={media} />
             }
          </div>
          <MediaInfo media={media} />
-      </div>
-   : <div className="container-content">
+      </section>
+   : <section className="container-content">
       <LoadingAnimation />
-   </div>
+   </section>
    }
 </>
 )};

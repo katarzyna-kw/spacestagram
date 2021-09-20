@@ -5,9 +5,9 @@ import '../App.css';
 
 export const Header = () => {
    return (
-   <header className="App-header">
-      <FontAwesomeIcon icon={ faMeteor } />
-      <h1>Spacestagram</h1>
-      <FontAwesomeIcon icon={ faRocket } />
- </header>
+      <header className="App-header">
+         <FontAwesomeIcon icon={ faMeteor } />
+         <h1>Spacestagram</h1>
+         <FontAwesomeIcon icon={ faRocket } />
+   </header>
 )};
