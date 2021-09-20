@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { LoadingAnimation } from './LoadingAnimation'
-import { LikeButton } from './LikeButton'
+import { MediaTypeVideo } from './Card.components/MediaTypeVideo'
+import { MediaTypeImage } from './Card.components/MediaTypeImage'
+import { MediaInfo } from './Card.components/MediaInfo'
 import '../App.css';
 
-
-export const Card = ({ media }) => {
+export const Card = ({ media, onLoad }) => {
 
    const [ mediaType, setMediaType ] = useState();
 
@@ -13,40 +14,18 @@ export const Card = ({ media }) => {
       setMediaType(media.media_type);
    }, [media.media_type]);
 
+
    return (
 <>
    { (mediaType!==undefined) 
       ? <div className="container-content">
          <div className="container-img">
             { (mediaType==="video") 
-            ? <div className="video-wrapper">
-               <iframe
-                  width="100%"
-                  height="100%"
-                  src={media.url}
-                  title="YouTube video"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen
-               >
-               </iframe>
-            </div> 
-            : <img src={media.hdurl} className="image" alt={media.explanation} />
+            ? <MediaTypeVideo media={media} />
+            : <MediaTypeImage media={media} />
             }
          </div>
-         <div className="container-img-info">
-            <div className="img-info-header">
-               <p className="title">
-                  {media.title}
-               </p>
-               <LikeButton />
-            </div>
-            <p className="date">
-               {media.date}
-            </p>
-            <p className="caption">
-               {media.explanation}
-            </p>
-         </div>
+         <MediaInfo media={media} />
       </div>
    : <div className="container-content">
       <LoadingAnimation />

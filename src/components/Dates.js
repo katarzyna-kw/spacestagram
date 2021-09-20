@@ -1,30 +1,37 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import DateAdapter from '@mui/lab/AdapterDateFns'
 import { LocalizationProvider } from '@mui/lab' 
 import DatePicker from '@mui/lab/DatePicker'
 import TextField from '@material-ui/core/TextField';
 import '../App.css';
 
-export const Dates = ({ nasaEndpoint, nasaApiKey, onSelect }) => {
+export const Dates = ({ nasaEndpoint, nasaApiKey, onSelect, onLoad }) => {
 
    const [ startDate, setStartDate ] = useState(new Date())
 
+
+   
+  const updateMedia = async (parsedDate) => {
+    return await fetch(`${nasaEndpoint}planetary/apod/?api_key=${nasaApiKey}&date=${parsedDate}`)
+    .then(response => {
+      return response.json()
+    }).then((dateData) => {
+      onSelect(dateData)
+      console.log(dateData)
+    })
+    }
+
    const handleDateChange = (date) => {
       setStartDate(date)
-      // setLoading(true);
+      onLoad(true);
       const parsedDate= date.toISOString().slice(0,10);
-      console.log(date, parsedDate)
-      fetch(`${nasaEndpoint}planetary/apod/?api_key=${nasaApiKey}&date=${parsedDate}`)
-      .then((response) => response.json())
-      .then((dateData) => {
-        onSelect(dateData)
-      })
+      updateMedia(parsedDate)
       .catch((err) => {
         console.log(err)
       })
-      // .finally(() => {
-      //   setLoading(false);
-      // });
+      .finally(() => {
+        onLoad(false);
+      });
     }
   
    return (

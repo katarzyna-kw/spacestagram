@@ -10,7 +10,6 @@ function App() {
 
   const [ selectedMedia, setSelectedMedia ] = useState([]);
   const [ loading, setLoading ] = useState(false);
-  const [ startDate, setStartDate ] = useState(new Date())
   const nasaEndpoint=process.env.REACT_APP_NASA_ENDPOINT
   const nasaApiKey=process.env.REACT_APP_NASA_API_KEY
 
@@ -30,23 +29,6 @@ function App() {
     });
   }, [nasaEndpoint, nasaApiKey]);
 
-  // const handleDateChange = (date) => {
-  //   setStartDate(date)
-  //   setLoading(true);
-  //   const parsedDate= date.toISOString().slice(0,10);
-  //   console.log(date, parsedDate)
-  //   fetch(`${nasaEndpoint}planetary/apod/?api_key=${nasaApiKey}&date=${parsedDate}`)
-  //   .then((response) => response.json())
-  //   .then((dateData) => {
-  //     setSelectedMedia(dateData)
-  //   })
-  //   .catch((err) => {
-  //     console.log(err)
-  //   })
-  //   .finally(() => {
-  //     setLoading(false);
-  //   });
-  // }
 
   return (
     <div className="App">
@@ -55,9 +37,10 @@ function App() {
         <Dates 
           nasaEndpoint={nasaEndpoint} nasaApiKey={nasaApiKey} 
           onSelect={setSelectedMedia}
+          onLoad={setLoading}
         />
         { (selectedMedia!==undefined) 
-          ? <Card media={selectedMedia}/> 
+          ? <Card media={selectedMedia} onLoad={setLoading}/> 
           : <LoadingAnimation /> 
         }
       </div>
