@@ -27,13 +27,13 @@ function App() {
     .finally(() => {
       setLoading(false)
     });
-  }, []);
+  }, [nasaEndpoint, nasaApiKey]);
 
 
   return (
-    <div className="App">
+    <div className="App-body">
       <Header />
-      <div className="container-body">
+      <main className="container-body">
         <Dates 
           nasaEndpoint={nasaEndpoint} nasaApiKey={nasaApiKey} 
           onSelect={setSelectedMedia}
@@ -43,7 +43,7 @@ function App() {
           ? <Card media={selectedMedia} /> 
           : <LoadingAnimation /> 
         }
-      </div>
+      </main>
       <Footer />
     </div>
   );

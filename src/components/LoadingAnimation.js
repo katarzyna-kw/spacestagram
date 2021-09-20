@@ -2,8 +2,7 @@ import '../App.css';
 
 export const LoadingAnimation = () => {
    return (
-      <div className='loading'>
-         {/* Loading icon */}
+      <section className='loading'>
          <div className="lds-default"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div> 
-      </div>   
+      </section>   
 )};

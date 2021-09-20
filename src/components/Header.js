@@ -7,7 +7,7 @@ export const Header = () => {
    return (
    <header className="App-header">
       <FontAwesomeIcon icon={ faMeteor } />
-      <span>Spacestagram</span>
+      <h1>Spacestagram</h1>
       <FontAwesomeIcon icon={ faRocket } />
  </header>
 )};
