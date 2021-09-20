@@ -5,7 +5,7 @@ import { MediaTypeImage } from './Card.components/MediaTypeImage'
 import { MediaInfo } from './Card.components/MediaInfo'
 import '../App.css';
 
-export const Card = ({ media, onLoad }) => {
+export const Card = ({ media }) => {
 
    const [ mediaType, setMediaType ] = useState();
 
@@ -13,6 +13,9 @@ export const Card = ({ media, onLoad }) => {
    useEffect(()=> {
       setMediaType(media.media_type);
    }, [media.media_type]);
+
+   console.log("media: ", media)
+
 
 
    return (

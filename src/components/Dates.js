@@ -1,16 +1,15 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import DateAdapter from '@mui/lab/AdapterDateFns'
 import { LocalizationProvider } from '@mui/lab' 
 import DatePicker from '@mui/lab/DatePicker'
 import TextField from '@material-ui/core/TextField';
 import '../App.css';
 
-export const Dates = ({ nasaEndpoint, nasaApiKey, onSelect, onLoad }) => {
+export const Dates = ({ nasaEndpoint, nasaApiKey, onSelect, loadingMedia }) => {
 
    const [ startDate, setStartDate ] = useState(new Date())
 
 
-   
   const updateMedia = async (parsedDate) => {
     return await fetch(`${nasaEndpoint}planetary/apod/?api_key=${nasaApiKey}&date=${parsedDate}`)
     .then(response => {
@@ -22,18 +21,17 @@ export const Dates = ({ nasaEndpoint, nasaApiKey, onSelect, onLoad }) => {
     }
 
    const handleDateChange = (date) => {
-      setStartDate(date)
-      onLoad(true);
+    loadingMedia(true)
+    setStartDate(date)
       const parsedDate= date.toISOString().slice(0,10);
       updateMedia(parsedDate)
       .catch((err) => {
         console.log(err)
       })
       .finally(() => {
-        onLoad(false);
-      });
+        loadingMedia(false)
+      })
     }
-  
    return (
    <>
       <LocalizationProvider dateAdapter={DateAdapter}>
