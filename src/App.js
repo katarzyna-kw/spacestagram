@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Header } from './components/Header'
-import { Dates } from './components/Dates'
-import { Card } from './components/Card'
+import { Main } from './components/Main'
 import { Footer } from './components/Footer'
-import { LoadingAnimation } from './components/LoadingAnimation'
 import './App.css';
 
 function App() {
@@ -31,20 +29,17 @@ function App() {
 
 
   return (
-    <div className="App-body">
-      <Header />
-      <main className="container-body">
-        <Dates 
-          nasaEndpoint={nasaEndpoint} nasaApiKey={nasaApiKey} 
-          onSelect={setSelectedMedia}
-          loadingMedia={setLoading}
-        />
-        { (!loading)
-          ? <Card media={selectedMedia} /> 
-          : <LoadingAnimation /> 
-        }
-      </main>
-      <Footer />
+    <div className="App-body" data-testid="app-body">
+      <Header data-testid="header"/>
+      <Main data-test id="main" 
+        nasaEndpoint={nasaEndpoint} 
+        nasaApiKey={nasaApiKey} 
+        onSelect={setSelectedMedia}
+        loadingMedia={setLoading}
+        media={selectedMedia}
+        loading={loading}
+      />
+      <Footer data-testid="footer"/>
     </div>
   );
 }
