@@ -38,7 +38,7 @@ jobs:
               REACT_APP_NASA_ENDPOINT: ${{ secrets.REACT_APP_NASA_ENDPOINT }}
               REACT_APP_NASA_API_KEY: ${{ secrets.REACT_APP_NASA_API_KEY }}
       - name: Deploy
-        uses: katarzyna-kw/github-pages-deploy-action@releases/v3
+        uses: katarzyna-kw/spacestagram@releases/v3
         with:
           BRANCH: gh-pages
           FOLDER: build
