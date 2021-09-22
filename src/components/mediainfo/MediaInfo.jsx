@@ -1,9 +1,9 @@
-import { LikeButton } from './LikeButton'
+import LikeButton from '../likebutton'
 import '../../App.css';
 
-export const MediaInfo = ({ media }) => {
+const MediaInfo = ({ media }) => {
    return (
-      <article className="container-media-info">
+      <article className="container-media-info" data-testid="mediaInfoContainer">
          <div className="media-info-header">
             <h2 className="title">
                {media.title}
@@ -19,3 +19,5 @@ export const MediaInfo = ({ media }) => {
       </article>
 )
 };
+
+export default MediaInfo;

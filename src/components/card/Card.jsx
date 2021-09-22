@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import { LoadingAnimation } from './LoadingAnimation'
-import { MediaTypeVideo } from './Card.components/MediaTypeVideo'
-import { MediaTypeImage } from './Card.components/MediaTypeImage'
-import { MediaInfo } from './Card.components/MediaInfo'
-import '../App.css';
+import LoadingAnimation from '../loadinganimation'
+import MediaTypeVideo from '../mediatypevideo'
+import MediaTypeImage from '../mediatypeimage'
+import MediaInfo from '../mediainfo'
+import '../../App.css';
 
-export const Card = ({ media }) => {
+const Card = ({ media }) => {
 
    const [ mediaType, setMediaType ] = useState();
 
@@ -33,3 +33,5 @@ export const Card = ({ media }) => {
    }
 </>
 )};
+
+export default Card;

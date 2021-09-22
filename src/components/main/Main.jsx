@@ -1,10 +1,10 @@
 //icon imports
-import { Dates } from './Dates'
-import { Card } from './Card'
-import { LoadingAnimation } from './LoadingAnimation'
-import '../App.css';
+import Dates from '../dates'
+import Card from '../card'
+import LoadingAnimation from '../loadinganimation'
+import '../../App.css';
 
-export const Main = ({nasaEndpoint, nasaApiKey, loading, onSelect, media, loadingMedia}) => {
+const Main = ({nasaEndpoint, nasaApiKey, loading, onSelect, media, loadingMedia}) => {
    return (
       <main className="container-body">
         <Dates 
@@ -18,3 +18,5 @@ export const Main = ({nasaEndpoint, nasaApiKey, loading, onSelect, media, loadin
         }
       </main>
 )};
+
+export default Main;

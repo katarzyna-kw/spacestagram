@@ -3,9 +3,9 @@ import DateAdapter from '@mui/lab/AdapterDateFns'
 import { LocalizationProvider } from '@mui/lab' 
 import DatePicker from '@mui/lab/DatePicker'
 import TextField from '@material-ui/core/TextField';
-import '../App.css';
+import '../../App.css';
 
-export const Dates = ({ nasaEndpoint, nasaApiKey, onSelect, loadingMedia }) => {
+const Dates = ({ nasaEndpoint, nasaApiKey, onSelect, loadingMedia }) => {
 
    const [ startDate, setStartDate ] = useState(new Date())
 
@@ -45,3 +45,5 @@ export const Dates = ({ nasaEndpoint, nasaApiKey, onSelect, loadingMedia }) => {
    </>
    )
 };
+
+export default Dates;

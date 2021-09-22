@@ -3,12 +3,14 @@ import Checkbox from '@material-ui/core/Checkbox';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 
-export const LikeButton = () => {
+const LikeButton = () => {
    return (
-      <FormControlLabel
+      <FormControlLabel data-testid="button"
          control={<Checkbox icon={<FavoriteBorderIcon />} 
          checkedIcon={<FavoriteIcon />}
          name="liked" />}
       />
    )
 };
+
+export default LikeButton

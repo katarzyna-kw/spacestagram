@@ -1,6 +1,6 @@
 import '../../App.css';
 
-export const MediaTypeVideo = ({ media }) => {
+const MediaTypeVideo = ({ media }) => {
    return (
       <div className="video-wrapper">
          <iframe
@@ -15,3 +15,5 @@ export const MediaTypeVideo = ({ media }) => {
       </div>
    )
 };
+
+export default MediaTypeVideo;
