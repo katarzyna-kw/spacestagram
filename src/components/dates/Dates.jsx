@@ -39,7 +39,7 @@ const Dates = ({ nasaEndpoint, nasaApiKey, onSelect, loadingMedia }) => {
         <DatePicker 
           label="Pick a date"
           value={startDate}
-          maxDate={startDate}
+          maxDate={new Date()}
           onChange={handleDateChange}
           renderInput={(params) => <TextField {...params} />}
         />
