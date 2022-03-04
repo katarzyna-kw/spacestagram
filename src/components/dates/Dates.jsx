@@ -24,6 +24,7 @@ const Dates = ({ nasaEndpoint, nasaApiKey, onSelect, loadingMedia }) => {
     loadingMedia(true)
     setStartDate(date)
       const parsedDate= date.toISOString().slice(0,10);
+      console.log("parsedDate: ", parsedDate)
       updateMedia(parsedDate)
       .catch((err) => {
         console.log(err)
